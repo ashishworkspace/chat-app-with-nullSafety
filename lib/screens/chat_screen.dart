@@ -79,7 +79,8 @@ class _ChatScreenState extends State<ChatScreen> {
                       //Implement send functionality.
                       _firestore.collection("message").add({
                         "sender": "${_auth.currentUser!.email}",
-                        "text": "$messageText"
+                        "text": "$messageText",
+                        "time": DateTime.now()
                       });
                     },
                     child: Text(
@@ -107,28 +108,33 @@ class CustomMessageBubble extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(10.0),
       child: Column(
-        crossAxisAlignment: isMe! ? CrossAxisAlignment.end: CrossAxisAlignment.start,
+        crossAxisAlignment:
+            isMe! ? CrossAxisAlignment.end : CrossAxisAlignment.start,
         children: [
           Text(
             sender!,
             style: TextStyle(color: Colors.grey, fontSize: 10),
           ),
           Material(
-              borderRadius: isMe!? BorderRadius.only(
-                  topLeft: Radius.circular(30),
-                  bottomLeft: Radius.circular(30),
-                  topRight: Radius.circular(30)): BorderRadius.only(
-                  topLeft: Radius.circular(30),
-                  bottomRight: Radius.circular(30),
-                  topRight: Radius.circular(30)),
-              color: isMe! ? Colors.lightBlueAccent: Colors.white,
+              borderRadius: isMe!
+                  ? BorderRadius.only(
+                      topLeft: Radius.circular(30),
+                      bottomLeft: Radius.circular(30),
+                      topRight: Radius.circular(30))
+                  : BorderRadius.only(
+                      topLeft: Radius.circular(30),
+                      bottomRight: Radius.circular(30),
+                      topRight: Radius.circular(30)),
+              color: isMe! ? Colors.lightBlueAccent : Colors.white,
               elevation: 10.0,
               child: Padding(
                 padding:
                     const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
                 child: Text(
                   text!,
-                  style: TextStyle(fontSize: 16, color: isMe! ? Colors.white: Colors.black54),
+                  style: TextStyle(
+                      fontSize: 16,
+                      color: isMe! ? Colors.white : Colors.black54),
                 ),
               )),
         ],
@@ -141,10 +147,10 @@ class MessageStream extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<QuerySnapshot>(
-      stream: _firestore.collection("message").snapshots(),
+      stream: _firestore.collection("message").orderBy("time").snapshots(),
       builder: (BuildContext context, AsyncSnapshot snapshot) {
         if (snapshot.hasData) {
-          final msgDocs = snapshot.data!.docs;
+          final dynamic msgDocs = snapshot.data!.docs.reversed;
           List<CustomMessageBubble> messageBubbles = [];
           for (var msg in msgDocs) {
             final msgText = msg.get("text");
@@ -162,8 +168,9 @@ class MessageStream extends StatelessWidget {
             print(messageBubbles);
           }
           return Expanded(
-            child: ListView(reverse: true,
-                scrollDirection: Axis.vertical, children: messageBubbles),
+            child: ListView(
+                reverse: true,
+                children: messageBubbles),
           );
         } else {
           return Center(

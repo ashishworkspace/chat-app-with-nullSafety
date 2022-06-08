@@ -37,26 +37,25 @@ class _WelcomeScreenState extends State<WelcomeScreen>
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            Row(
-              children: <Widget>[
-                Hero(
-                  tag: "logo",
-                  child: Container(
-                    child: Image.asset('images/logo.png'),
-                    height: controller!.value,
-                  ),
-                ),
-                Text(
-                  '${controller!.value.toInt()}%',
-                  style: TextStyle(
-                    fontSize: 45.0,
-                    fontWeight: FontWeight.w900,
-                  ),
-                ),
-              ],
-            ),
+            // Text(
+            //   "Sandesh",
+            //   style: TextStyle(
+            //       fontFamily: "CurlyCandy", fontSize: 100, color: Colors.teal),
+            //   textAlign: TextAlign.center,
+            // ),
+            Text("Sandesh", style: TextStyle(fontFamily: "WoodBeads", fontSize: 100, color: Colors.teal), textAlign: TextAlign.center,),
             SizedBox(
-              height: 48.0,
+              height: 70.0,
+            ),
+            Image.asset('images/logo.png',
+                height: 150,
+                scale: 2.5,
+                opacity: const AlwaysStoppedAnimation<double>(1)),
+            // Text("Sandesh", style: TextStyle(fontFamily: "LoveInstinct", fontSize: 100, color: Colors.teal),),
+            // Text("Sandesh", style: TextStyle(fontFamily: "MiniHonysa", fontSize: 100, color: Colors.teal),),
+            // Text("Sandesh", style: TextStyle(fontFamily: "ShinyBalloon", fontSize: 100, color: Colors.teal),),
+            SizedBox(
+              height: 70.0,
             ),
             CustomButton(
                 label: "Log In",
@@ -69,7 +68,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                 onpress: () {
                   Navigator.pushNamed(context, RegistrationScreen.id);
                 },
-                color: Colors.blueAccent)
+                color: Colors.blueAccent),
           ],
         ),
       ),

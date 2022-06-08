@@ -38,6 +38,7 @@ dev_dependencies:
   animated_text_kit: ^4.2.1
   modal_progress_hud: ^0.1.3
   firebase_core_web: ^1.1.0
+  animated_splash_screen: ^1.2.0
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
@@ -65,17 +66,23 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
+  fonts:
+    - family: CurlyCandy
+      fonts:
+        - asset: assets/fonts/CurlyCandyDemoRegular.ttf
+    - family: LoveInstinct
+      fonts:
+        - asset: assets/fonts/LoveInstinctDemoRegular.ttf
+    - family: MiniHonysa
+      fonts:
+        - asset: assets/fonts/MiniHonysa.ttf
+    - family: ShinyBalloon
+      fonts:
+        - asset: assets/fonts/ShinyBalloonDemoRegular.ttf
+    - family: WoodBeads
+      fonts:
+        - asset: assets/fonts/WoodBeadsDemoRegular.ttf
+
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

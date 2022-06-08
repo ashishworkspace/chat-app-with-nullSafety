@@ -4,7 +4,6 @@ import 'package:auth/screens/chat_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-
 class LoginScreen extends StatefulWidget {
   static const String id = "login";
 
@@ -13,7 +12,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  String? email; // ? here indicate that email variable can be null 
+  String? email; // ? here indicate that email variable can be null
   String? passwd;
   bool setProgress = false;
   final _auth = FirebaseAuth.instance;
@@ -27,8 +26,8 @@ class _LoginScreenState extends State<LoginScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            Flexible
-                          (child: Hero(
+            Flexible(
+              child: Hero(
                 tag: "logo",
                 child: Container(
                   height: 200.0,
@@ -39,27 +38,38 @@ class _LoginScreenState extends State<LoginScreen> {
             SizedBox(
               height: 48.0,
             ),
-            TextField(
-                textAlign: TextAlign.center,
-                keyboardType: TextInputType.emailAddress,
-                onChanged: (value) {
-                  email = value;
-                },
-                decoration:
-                    kInputDecoration.copyWith(hintText: "Enter the Email")),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: TextField(
+                  cursorHeight: 20,
+                  cursorColor: Colors.teal,
+                  style: TextStyle(),
+                  textAlign: TextAlign.center,
+                  keyboardType: TextInputType.emailAddress,
+                  onChanged: (value) {
+                    email = value;
+                  },
+                  decoration:
+                      kInputDecoration.copyWith(hintText: "Enter the Email")),
+            ),
             SizedBox(
               height: 8.0,
             ),
-            TextField(
-                textAlign: TextAlign.center,
-                obscureText: true,
-                onChanged: (value) {
-                  passwd = value;
-                },
-                decoration: kInputDecoration.copyWith(
-                    hintText: "Enter the Password")),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: TextField(
+                  cursorHeight: 20,
+                  cursorColor: Colors.teal,
+                  textAlign: TextAlign.center,
+                  obscureText: true,
+                  onChanged: (value) {
+                    passwd = value;
+                  },
+                  decoration: kInputDecoration.copyWith(
+                      hintText: "Enter the Password")),
+            ),
             SizedBox(
-              height: 24.0,
+              height: 8.0,
             ),
             CustomButton(
                 label: "Log IN",
@@ -68,10 +78,13 @@ class _LoginScreenState extends State<LoginScreen> {
                     setProgress = true;
                   });
                   try {
-                    final UserCredential newUser = await _auth.signInWithEmailAndPassword(
-                        email: email!, password: passwd!); // ! mark means that the value  assign to email is not null-able 
-                   // ignore: unnecessary_null_comparison
-                   if (newUser != null) {
+                    final UserCredential newUser =
+                        await _auth.signInWithEmailAndPassword(
+                            email: email!,
+                            password:
+                                passwd!); // ! mark means that the value  assign to email is not null-able
+                    // ignore: unnecessary_null_comparison
+                    if (newUser != null) {
                       Navigator.pushNamed(context, ChatScreen.id);
                     }
                   } catch (err) {

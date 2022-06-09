@@ -82,7 +82,9 @@ flutter:
     - family: WoodBeads
       fonts:
         - asset: assets/fonts/WoodBeadsDemoRegular.ttf
-
+    - family: Itim-Regular
+      fonts:
+        - asset: assets/fonts/Itim-Regular.ttf
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

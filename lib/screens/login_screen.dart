@@ -1,5 +1,6 @@
 import 'package:auth/constants.dart';
 import 'package:auth/custom/button.dart';
+import 'package:auth/custom/image_gif.dart';
 import 'package:auth/screens/chat_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -31,7 +32,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 tag: "logo",
                 child: Container(
                   height: 200.0,
-                  child: Image.asset('images/logo.png'),
+                  child: ImageGIf(),
                 ),
               ),
             ),
@@ -94,7 +95,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     setProgress = false;
                   });
                 },
-                color: Colors.lightBlueAccent)
+                color: Colors.teal)
           ],
         ),
       ),

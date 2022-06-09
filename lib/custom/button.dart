@@ -9,21 +9,18 @@ class CustomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 20),
+      padding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 20),
       child: Material(
         elevation: 5.0,
         color: color,
         borderRadius: BorderRadius.circular(30.0),
-        child: ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            primary: Colors.teal,
-            fixedSize: const Size(100, 45),
-            elevation: 20,
-          ),
+        child: MaterialButton(
           onPressed: onpress,
+          minWidth: 200.0,
+          height: 50.0,
           child: Text(
             label,
-            style: TextStyle(color: Colors.white, fontSize: 17),
+            style:  TextStyle(color: Colors. white, fontSize: 17)
           ),
         ),
       ),

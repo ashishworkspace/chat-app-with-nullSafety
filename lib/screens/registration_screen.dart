@@ -1,5 +1,6 @@
 import 'package:auth/constants.dart';
 import 'package:auth/custom/button.dart';
+import 'package:auth/custom/image_gif.dart';
 import 'package:auth/screens/chat_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +16,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   String? passwd;
   bool showProgress = false;
   final FirebaseAuth _auth = FirebaseAuth.instance;
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +32,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 tag: "logo",
                 child: Container(
                   height: 200.0,
-                  child: Image.asset('images/logo.png'),
+                  child: ImageGIf(),
                 ),
               ),
             ),
@@ -89,7 +91,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     print(err);
                   }
                 },
-                color: Colors.lightBlueAccent)
+                color: Colors.teal)
           ],
         ),
       ),

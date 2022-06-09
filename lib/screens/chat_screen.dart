@@ -49,8 +49,8 @@ class _ChatScreenState extends State<ChatScreen> {
                 Navigator.pop(context);
               }),
         ],
-        title: Text('⚡️ Chat'),
-        backgroundColor: Colors.lightBlueAccent,
+        title: Text('Sandesh', style: TextStyle(color: Colors.white, fontFamily: "WoodBeads"),),
+        backgroundColor: Colors.teal,
       ),
       body: SafeArea(
         child: Column(
@@ -125,7 +125,7 @@ class CustomMessageBubble extends StatelessWidget {
                       topLeft: Radius.circular(30),
                       bottomRight: Radius.circular(30),
                       topRight: Radius.circular(30)),
-              color: isMe! ? Colors.lightBlueAccent : Colors.white,
+              color: isMe! ? Colors.teal : Colors.white,
               elevation: 10.0,
               child: Padding(
                 padding:
@@ -134,7 +134,7 @@ class CustomMessageBubble extends StatelessWidget {
                   text!,
                   style: TextStyle(
                       fontSize: 16,
-                      color: isMe! ? Colors.white : Colors.black54),
+                      color: isMe! ? Colors.white : Colors.black),
                 ),
               )),
         ],
@@ -165,7 +165,6 @@ class MessageStream extends StatelessWidget {
             );
 
             messageBubbles.add(messageBubble);
-            print(messageBubbles);
           }
           return Expanded(
             child: ListView(
@@ -175,7 +174,7 @@ class MessageStream extends StatelessWidget {
         } else {
           return Center(
             child: CircularProgressIndicator(
-              color: Colors.lightBlueAccent,
+              color: Colors.teal,
             ),
           );
         }

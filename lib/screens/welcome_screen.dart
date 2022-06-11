@@ -23,7 +23,6 @@ class _WelcomeScreenState extends State<WelcomeScreen>
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             SizedBox(height: 20),
-
             Padding(
               padding: const EdgeInsets.all(20.0),
               child: Image.asset(
@@ -34,7 +33,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
             SizedBox(
               height: 40.0,
             ),
-                        Container(
+            Container(
               width: double.infinity,
               margin: EdgeInsets.all(10),
               child: Text(
